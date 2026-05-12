@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
 import java.lang.reflect.InvocationTargetException;
@@ -341,6 +342,14 @@ public class MainInterface extends JPanel {
         themeButton.addActionListener(new change_theme());
         gbc.gridy = 5;
         add(themeButton, gbc);
+
+        Font baseFont = macroValueHigh.getFont();
+        Font addressFont = new Font(Font.MONOSPACED, baseFont.getStyle(), baseFont.getSize());
+        macroValueHigh.setFont(addressFont);
+        macroValueLow.setFont(addressFont);
+        microValueHigh.setFont(addressFont);
+        microValueLow.setFont(addressFont);
+        dataRange.setFont(addressFont);
 
         long maxAddress = macroSlider.getUpperValue(); 
         long minAddress = macroSlider.getValue() - 1L;
